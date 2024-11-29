@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MEGA GAME BUNDLE - Unbelievable Offer!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .offer-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .offer-header {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .offer-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .image-placeholder {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px dashed #ffffff;
+            height: 300px; /* Set the desired height */
+            margin: 0px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden; /* Ensure content doesn't overflow the div */
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: fill; /* Ensures the image scales without distortion */
+            border-radius: 1px; /* Matches the div's border-radius */
+        }
+
+        .image-placeholder span {
+            color: rgba(255,255,255,0.7);
+        }
+        .price-comparison {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .original-price, .discounted-price {
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .original-price {
+            background: rgba(255, 0, 0, 0.349);
+            text-decoration: line-through;
+        }
+        .discounted-price {
+            background: rgba(0, 255, 0, 0.619);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .game-details {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .buy-button {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .buy-button:hover {
+            transform: scale(1.05);
+        }
+        .timer {
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="offer-container">
+        <div class="offer-header">
+            <h1>ULTIMATE GAME BUNDLE</h1>
+        </div>
+
+        <div class="image-placeholder">
+            <img src="gameoffer_image.jpg" alt="Game Offer">
+        </div>
+
+        <div class="price-comparison">
+            <div class="original-price">
+                <h3>Original Price</h3>
+                <p>$100.00</p>
+            </div>
+            <div class="discounted-price">
+                <h3>CRAZY DEAL!</h3>
+                <p>Only $2.00</p>
+            </div>
+        </div>
+
+        <div class="game-details">
+            <h2>🎮 What You Get 🎮</h2>
+            <p>Exclusive Bundle of 3 Top-Rated Games:</p>
+            <ul>
+                <li>Action-Packed Adventure Game</li>
+                <li>Strategic Multiplayer Thriller</li>
+                <li>Immersive Open-World Exploration</li>
+            </ul>
+        </div>
+
+        <div class="timer">
+            ⏰ Offer Ends In: 24:00:00
+        </div>
+
+        <button class="buy-button" onclick="window.location.href='inputcardinfo.html'">
+            🛒 CLAIM YOUR BUNDLE NOW!
+        </button>
+    </div>
+
+    <script>
+        // Optional: Add a countdown timer
+        function startTimer(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = `⏰ Offer Ends In: ${hours}:${minutes}:${seconds}`;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let twentyFourHours = 24 * 60 * 60;
+            let display = document.querySelector('.timer');
+            startTimer(twentyFourHours, display);
+        };
+    </script>
+</body>
+</html>

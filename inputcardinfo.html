@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Your Purchase</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .payment-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .payment-header {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .payment-header h1 {
+            margin: 0;
+            font-size: 2em;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+        }
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card-details > div {
+            width: 48%;
+        }
+        .submit-button {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .submit-button:hover {
+            transform: scale(1.05);
+        }
+        .secure-notice {
+            margin-top: 15px;
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <h1>Complete Your Purchase</h1>
+        </div>
+
+        <form id="paymentForm">
+            <div class="form-group">
+                <label>Card Holder Name</label>
+                <input type="text" class="form-control" placeholder="Full Name as on Card" required>
+            </div>
+
+            <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" class="form-control" placeholder="1234 5678 9012 3456" 
+                       pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" 
+                       maxlength="19" required>
+            </div>
+
+            <div class="card-details">
+                <div class="form-group">
+                    <label>Expiration Date</label>
+                    <input type="text" class="form-control" placeholder="MM/YY" 
+                           pattern="(0[1-9]|1[0-2])\/[0-9]{2}" 
+                           maxlength="5" required>
+                </div>
+                <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" class="form-control" placeholder="123" 
+                           pattern="[0-9]{3}" 
+                           maxlength="3" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button" >
+                <a href="explanation.html">
+                💳 Pay $2.00 Now
+                </a>
+            </button>
+        </form>
+
+        <div class="secure-notice">
+            🔒 Secure Payment - Your Information is Protected
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            alert('Payment Processed Successfully! Thank you for your purchase!');
+        });
+
+        document.querySelector('input[placeholder="1234 5678 9012 3456"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || '';
+            e.target.value = formattedValue;
+        });
+
+
+        document.querySelector('input[placeholder="MM/YY"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\//g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
