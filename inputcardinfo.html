@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Complete Your Purchase</title>
+    <link rel="icon" type="image/png" href="Ankesy_logo.png">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -82,11 +83,7 @@
         .submit-button:hover {
             transform: scale(1.05);
         }
-        .secure-notice {
-            margin-top: 15px;
-            font-size: 0.8em;
-            color: rgba(255,255,255,0.7);
-        }
+        
     </style>
 </head>
 <body>
@@ -130,17 +127,11 @@
             </button>
         </form>
 
-        <div class="secure-notice">
-            🔒 Secure Payment - Your Information is Protected
-        </div>
+        
     </div>
 
     <script>
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            alert('Payment Processed Successfully! Thank you for your purchase!');
-        });
+        
 
         document.querySelector('input[placeholder="1234 5678 9012 3456"]').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');

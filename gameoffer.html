@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MEGA GAME BUNDLE - Unbelievable Offer!</title>
+    <title>Special Offer!!!</title>
+    <link rel="icon" type="image/png" href="Ankesy_logo.png">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -38,27 +39,25 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .image-placeholder {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px dashed #ffffff;
-            height: 300px; /* Set the desired height */
-            margin: 0px 0;
+            
+            
+            height: 300px;
+            margin: 20px 0;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 10px;
-            overflow: hidden; /* Ensure content doesn't overflow the div */
         }
-
-        .image-placeholder img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: fill; /* Ensures the image scales without distortion */
-            border-radius: 1px; /* Matches the div's border-radius */
-        }
-
         .image-placeholder span {
             color: rgba(255,255,255,0.7);
         }
+        .image-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
         .price-comparison {
             display: flex;
             justify-content: space-around;
@@ -69,15 +68,15 @@
             border-radius: 10px;
         }
         .original-price {
-            background: rgba(255, 0, 0, 0.349);
+            background: rgba(255, 0, 0, 0.26);
             text-decoration: line-through;
         }
         .discounted-price {
-            background: rgba(0, 255, 0, 0.619);
+            background: rgba(0, 255, 0, 0.523);
             font-size: 1.5em;
             font-weight: bold;
         }
-        .game-details {
+        .product-details {
             background: rgba(255,255,255,0.1);
             padding: 20px;
             border-radius: 10px;
@@ -103,54 +102,68 @@
             border-radius: 10px;
             margin-top: 20px;
             display: inline-block;
+            font-size: 1.2em;
+        }
+        .product-benefits {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="offer-container">
         <div class="offer-header">
-            <h1>ULTIMATE GAME BUNDLE</h1>
+            <h1>Comfort Max Therapeutic Heated Blanket</h1>
         </div>
 
         <div class="image-placeholder">
-            <img src="gameoffer_image.jpg" alt="Game Offer">
+            <img src="blanket.jpg" alt="Blanket Image">
         </div>
 
         <div class="price-comparison">
             <div class="original-price">
                 <h3>Original Price</h3>
-                <p>$100.00</p>
+                <p>$129.99</p>
             </div>
             <div class="discounted-price">
-                <h3>CRAZY DEAL!</h3>
+                <h3>SPECIAL OFFER</h3>
                 <p>Only $2.00</p>
             </div>
         </div>
 
-        <div class="game-details">
-            <h2>🎮 What You Get 🎮</h2>
-            <p>Exclusive Bundle of 3 Top-Rated Games:</p>
+        <div class="product-details">
+            <h2>🛏️ Comfort Max Features</h2>
             <ul>
-                <li>Action-Packed Adventure Game</li>
-                <li>Strategic Multiplayer Thriller</li>
-                <li>Immersive Open-World Exploration</li>
+                <li>Advanced Heating Technology</li>
+                <li>Multiple Heat Settings</li>
+                <li>Ultra-Soft Micro-Fleece Material</li>
+                <li>Machine Washable</li>
+                <li>Auto Shut-Off Safety Feature</li>
             </ul>
         </div>
 
-        <div class="timer">
+        <div class="product-benefits">
+            <h3>🌡️ Therapeutic Benefits</h3>
+            <p>Helps with muscle relaxation, improves circulation, and provides comforting warmth for seniors</p>
+        </div>
+
+        <div class="timer" id="countdown">
             ⏰ Offer Ends In: 24:00:00
         </div>
 
-        <button class="buy-button" onclick="window.location.href='inputcardinfo.html'">
-            🛒 CLAIM YOUR BUNDLE NOW!
+        <button class="buy-button">
+            <a href="inputcardinfo.html">
+            🛒 Claim Your Blanket Now!
+            </a>
         </button>
     </div>
 
     <script>
-        // Optional: Add a countdown timer
         function startTimer(duration, display) {
             let timer = duration, hours, minutes, seconds;
-            setInterval(function () {
+            const countdownInterval = setInterval(function () {
                 hours = parseInt(timer / 3600, 10);
                 minutes = parseInt((timer % 3600) / 60, 10);
                 seconds = parseInt(timer % 60, 10);
@@ -162,14 +175,15 @@
                 display.textContent = `⏰ Offer Ends In: ${hours}:${minutes}:${seconds}`;
 
                 if (--timer < 0) {
-                    timer = duration;
+                    clearInterval(countdownInterval);
+                    display.textContent = "Offer Expired!";
                 }
             }, 1000);
         }
 
         window.onload = function () {
             let twentyFourHours = 24 * 60 * 60;
-            let display = document.querySelector('.timer');
+            let display = document.getElementById('countdown');
             startTimer(twentyFourHours, display);
         };
     </script>
